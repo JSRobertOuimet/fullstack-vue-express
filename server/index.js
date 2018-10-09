@@ -3,13 +3,13 @@ const
   bodyParser = require("body-parser"),
   cors = require("cors"),
 
-  posts = require("./routes/api/posts"),
-
+  app = express(),
   port = process.env.PORT || 5000,
-  app = express();
+
+  posts = require("./routes/api/posts");
 
 app
-  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.json())
   .use(cors())
   .use("/api/posts", posts)
   .listen(port, () => console.log(`Server listening on port ${port}...`));

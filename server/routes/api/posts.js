@@ -3,12 +3,11 @@ const
   mongodb = require("mongodb"),
   router = express.Router();
 
-router
-  .get("/", async (req, res) => {
-    const posts = await loadPostsCollection();
+router.get("/", async (req, res) => {
+  const posts = await loadPostsCollection();
 
-    res.send(await posts.find({}).toArray());
-  });
+  res.send(await posts.find({}).toArray());
+});
 
 router.post("/", async (req, res) => {
   const posts = await loadPostsCollection();
@@ -30,7 +29,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect("mongodb://admin123:admin123@ds239681.mlab.com:39681/fullstack-vue-express", {
+  const client = await mongodb.MongoClient.connect("mongodb://admin456:admin456@ds239681.mlab.com:39681/fullstack-vue-express", {
     useNewUrlParser: true
   });
 

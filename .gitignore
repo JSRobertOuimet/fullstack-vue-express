@@ -143,4 +143,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+client/
+
 # End of https://www.gitignore.io/api/git,node,macos,windows
