@@ -8,8 +8,16 @@ const
 
   posts = require("./routes/api/posts");
 
+// Middleware
 app
   .use(bodyParser.json())
-  .use(cors())
-  .use("/api/posts", posts)
-  .listen(port, () => console.log(`Server listening on port ${port}...`));
+  .use(cors());
+
+app.use("/api/posts", posts);
+
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static(__dirname + "/public"));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
+}
+
+app.listen(port, () => console.log(`Server listening on port ${port}...`));
