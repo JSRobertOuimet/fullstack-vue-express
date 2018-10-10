@@ -143,4 +143,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Static folder for production
+server/public
+
 # End of https://www.gitignore.io/api/git,node,macos,windows
